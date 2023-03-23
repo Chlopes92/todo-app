@@ -1,0 +1,25 @@
+<main>
+    <form class="container">
+        <p class="text-left">Sélectionnez votre catégorie* :</p>
+        <div class="button-circular">
+            <button class="circular" [ngClass]="{ 'selected': category === selectedCategory }" *ngFor="let category of categories"
+                (click)="selectCategory(category)">
+                {{ category }}
+            </button>
+        </div>
+    
+        <p class="text-left">Quelle tâche avez vous à effectuer* ?</p>
+        <textarea name="task" id="task" cols="30" rows="10" placeholder="Exemple : Faire les courses"
+            [(ngModel)]="task.content"></textarea>
+
+        <label for="input" class="text-left">
+            <input type="checkbox" class="checkbox"[(ngModel)]="task.isUrgent"> La tâche est urgente⚠️
+        </label>
+
+        <button [disabled]="!selectedCategory || !task.content"
+            [ngStyle]="{ 'background-color': (!selectedCategory || !task.content) ? 'rgba(100, 167, 217, 0.5)' : 'var(--color--blue)' }"
+            (click)="validateTask()" routerLink="">
+            Valider ma tâche
+        </button>
+    </form>
+</main>

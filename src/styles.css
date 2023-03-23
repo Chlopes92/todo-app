@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root{
+    --color--bg: #040722;
+    --color--texteara: #1D2038;
+    --color--pink: #E475F1;
+    --color--yellow: #F3D24F;
+    --color--blue: #64A7D9;
+    --color--green: #88E7A1;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background-color: var(--color--bg);
+}
+
+/* div,section,main,header,nav{
+    border: 2px solid white;
+}  */
+
+/* h1, h2, h3{
+    font-family: ;
+} */
+
+/* img{
+    max-width: 100%;
+    display: block;
+} */
+
+p, button{
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.column{
+    flex-direction: column;
+}
