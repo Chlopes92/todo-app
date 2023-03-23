@@ -18,7 +18,8 @@ export class TasksComponent {
     content: '',
     category: ''as CategoryType,
     isUrgent: false,
-    doneDate: new Date()
+    doneDate: new Date(),
+    done: false, 
   };
   isButtonDisabled: boolean = true;
   isSelected: boolean = false;
@@ -36,7 +37,8 @@ export class TasksComponent {
         content: this.task.content,
         category: this.selectedCategory,
         isUrgent: this.task.isUrgent,
-        doneDate: new Date()
+        doneDate: new Date(),
+        done: this.task.done,
     };
     this.basketService.addTask(taskData);
     this.basketService.saveTasks();
@@ -45,7 +47,7 @@ export class TasksComponent {
 
   selectCategory(category: CategoryType): void {
     this.selectedCategory = category;
-    this.validateTask();
+    // this.validateTask();
     this.isSelected = true;
   }
 

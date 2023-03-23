@@ -1,3 +1,4 @@
+
 export type CategoryType = "🛍️" | "💊️" | "💼" | "💸" | "🧼" | "🤷‍♀️";
 
 export interface ITodo {
@@ -6,4 +7,5 @@ export interface ITodo {
     category?: CategoryType;
     isUrgent: boolean;
     doneDate: Date;
+    done: boolean; 
 }

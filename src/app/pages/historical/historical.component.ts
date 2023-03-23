@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ITodo } from 'src/app/mocks/todo.mock';
+import { BasketService } from 'src/app/services/basket/basket.service';
 
 @Component({
   selector: 'app-historical',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class HistoricalComponent {
 
+  doneTasks: ITodo[] = [];
+
+  constructor(private historicalService: BasketService) { }
+
+  ngOnInit() {
+    this.doneTasks = this.historicalService.getDoneTasks();
+  }
 }

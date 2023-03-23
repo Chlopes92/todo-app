@@ -1,19 +1,30 @@
-<section >
+<section>
     <div>
         <p>Aucune tâche pour le moment 🙌</p>
     </div>
 <app-create-tasks></app-create-tasks>
 </section>
 
-<!-- <section>
-    <p>⚠️ Tâches urgentes</p>
-
-    <p>🌸Autres tâches</p>
-</section> -->
-<section class="list">
+<section>
+    <h4>⚠️ Tâches urgentes</h4>
+    <ul>
+        <li *ngFor="let task of urgentTasks">
+          <input type="checkbox" class="checkbox" (click)="toggleDone(task)" [class.done]="task.done"> 
+          <label for="input">{{task.category}} {{task.content}}</label>
+        </li>
+    </ul>
+    <h4>🌸Autres tâches</h4>
+    <ul>
+        <li *ngFor="let task of otherTasks">
+          <input type="checkbox" class="checkbox" (click)="toggleDone(task)" [class.done]="task.done"> 
+          <label for="input">{{task.category}} {{task.content}}</label>
+        </li>
+    </ul>
+</section>
+<!-- <section class="list">
     <li *ngFor="let task of tasks">
-        <ul> <input type="checkbox" class="checkbox"> 
+        <ul> <input type="checkbox" class="checkbox" (click)="toggleDone(task)" [class.done]="task.done"> 
             <label for="input">{{task.category}} {{task.content}}</label>
         </ul>
     </li>
-</section>
+</section> -->
