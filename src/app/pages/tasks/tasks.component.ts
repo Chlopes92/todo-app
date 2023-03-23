@@ -13,12 +13,11 @@ export class TasksComponent {
   categories: CategoryType[] = ["🛍️", "💊️", "💼", "💸", "🧼", "🤷‍♀️"];
   selectedCategory: CategoryType | undefined;
 
-  
   task: ITodo = {
     id: 0,
     content: '',
     category: ''as CategoryType,
-    isUrgent: true,
+    isUrgent: false,
     doneDate: new Date()
   };
   isButtonDisabled: boolean = true;
@@ -33,19 +32,15 @@ export class TasksComponent {
       this.isButtonDisabled = true;
     }
     const taskData = {
-      id: 0,
-      category: this.selectedCategory,
-      content: this.task.content,
-      isUrgent: this.task.isUrgent,
-      doneDate: new Date()
+      id: this.task.id,
+        content: this.task.content,
+        category: this.selectedCategory,
+        isUrgent: this.task.isUrgent,
+        doneDate: new Date()
     };
     this.basketService.addTask(taskData);
-    console.log(this.selectCategory);
-    console.log(this.task.content);
-    console.log(this.task.isUrgent);
+    console.log(taskData);
   }
-
-  
 
   selectCategory(category: CategoryType): void {
     this.selectedCategory = category;

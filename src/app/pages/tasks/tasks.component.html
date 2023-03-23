@@ -13,7 +13,7 @@
             [(ngModel)]="task.content"></textarea>
 
         <label for="input" class="text-left">
-            <input type="checkbox" class="checkbox"[(ngModel)]="task.isUrgent"> La tâche est urgente⚠️
+            <input type="checkbox" class="checkbox"[(ngModel)]="task.isUrgent" name="isUrgent"> La tâche est urgente⚠️
         </label>
 
         <button [disabled]="!selectedCategory || !task.content"
