@@ -1,4 +1,4 @@
-<section>
+<section >
     <div>
         <p>Aucune tâche pour le moment 🙌</p>
     </div>
@@ -10,3 +10,10 @@
 
     <p>🌸Autres tâches</p>
 </section> -->
+<section class="list">
+    <li *ngFor="let task of tasks">
+        <ul> <input type="checkbox" class="checkbox"> 
+            <label for="input">{{task.category}} {{task.content}}</label>
+        </ul>
+    </li>
+</section>

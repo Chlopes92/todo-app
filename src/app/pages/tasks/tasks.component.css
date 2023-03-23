@@ -65,7 +65,7 @@ button:disabled {
 .checkbox{
     width: 25px;
     height: 25px;
-    background-color: #1D2038;
+    background-color: var(--color--texteara);
     border-radius: 50%;
     vertical-align: middle;
     appearance: none;
@@ -75,7 +75,7 @@ button:disabled {
 }
 
 .checkbox:checked {
-    background-color: #E475F1;
+    background-color: var(--color--pink);
 }
 
 .checkbox:checked:after {

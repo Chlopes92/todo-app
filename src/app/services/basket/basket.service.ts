@@ -5,15 +5,24 @@ import { ITodo } from 'src/app/mocks/todo.mock';
   providedIn: 'root'
 })
 export class BasketService {
-  private tasks: ITodo[] = [];
+  tasks: ITodo[] = [];
 
   constructor() { }
 
   addTask(task: ITodo): void {
     this.tasks.push(task);
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
+  saveTasks(): void {
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
   getTasks(): ITodo[] {
+    const tasks = localStorage.getItem('tasks');
+    if (tasks) {
+      this.tasks = JSON.parse(tasks);
+    }
     return this.tasks;
   }
 }

@@ -39,6 +39,7 @@ export class TasksComponent {
         doneDate: new Date()
     };
     this.basketService.addTask(taskData);
+    this.basketService.saveTasks();
     console.log(taskData);
   }
 
