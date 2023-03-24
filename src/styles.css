@@ -28,6 +28,17 @@ body{
     height: 100vh;
     max-height: 100vh;
 }
+body::-webkit-scrollbar{
+    display: none;
+}
+
+main::-webkit-scrollbar{
+    width: 3vw;
+}
+
+main::-webkit-scrollbar-thumb{
+    background-color: var(--color--yellow);
+}
 
 /* div,section,main,header,nav{
     border: 2px solid white;

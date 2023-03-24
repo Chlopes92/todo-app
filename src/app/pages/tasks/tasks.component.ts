@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CategoryType, ITodo } from 'src/app/mocks/todo.mock';
-import { FormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
 import { BasketService } from 'src/app/services/basket/basket.service';
 
 @Component({
