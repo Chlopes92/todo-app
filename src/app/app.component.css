@@ -9,4 +9,6 @@ app-footer{
 main{
     flex: 1;
     overflow-y: scroll;
+    height: 78vh;
+    max-height: 78vh;
 }
