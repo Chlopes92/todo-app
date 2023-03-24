@@ -23,6 +23,10 @@ a{
 
 body{
     background-color: var(--color--bg);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-height: 100vh;
 }
 
 /* div,section,main,header,nav{

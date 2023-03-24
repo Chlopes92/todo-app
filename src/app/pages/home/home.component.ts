@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit{
   doneTasks: ITodo[] = [];
   urgentTasks: ITodo[] = [];
   otherTasks: ITodo[] = [];
-  submitted = false;
+  // submitted = false;
 
   constructor(private basketService: BasketService, private router: Router) { }
 
@@ -36,9 +36,9 @@ export class HomeComponent implements OnInit{
   }
   
 
-  onSubmit() {
-    this.submitted = true;
-  }
+  // onSubmit() {
+  //   this.submitted = true;
+  // }
 
   toggleDone(task: ITodo) {
     task.done = !task.done;

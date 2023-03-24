@@ -19,6 +19,7 @@ export class TasksComponent {
     category: ''as CategoryType,
     isUrgent: false,
     doneDate: new Date(),
+    // doneDate: null,
     done: false, 
   };
   isButtonDisabled: boolean = true;
@@ -34,11 +35,11 @@ export class TasksComponent {
     }
     const taskData = {
       id: this.task.id,
-        content: this.task.content,
-        category: this.selectedCategory,
-        isUrgent: this.task.isUrgent,
-        doneDate: new Date(),
-        done: this.task.done,
+      content: this.task.content,
+      category: this.selectedCategory,
+      isUrgent: this.task.isUrgent,
+      doneDate: new Date(),
+      done: this.task.done,
     };
     this.basketService.addTask(taskData);
     this.basketService.saveTasks();

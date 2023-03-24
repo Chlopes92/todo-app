@@ -1,11 +1,14 @@
+<ng-template #otherContain>
 <section>
     <div>
         <p>Votre historique est vide 😬</p>
     </div>
 <app-create-tasks></app-create-tasks>
 </section>
+</ng-template>
 
-<section class="list">
+
+<section class="list" *ngIf="doneTasks.length > 0; else otherContain">
     <h4>Historique des tâches :</h4>
     <ul>
       <li *ngFor="let task of doneTasks">
