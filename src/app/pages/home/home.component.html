@@ -9,20 +9,22 @@
     </ng-template>
 
     <section *ngIf="tasks.length > 0; else otherContain">
-        <h4>⚠️ Tâches urgentes</h4>
-        <ul>
-            <li *ngFor="let task of urgentTasks">
-                <input type="checkbox" class="checkbox" (click)="toggleDone(task)" [class.done]="task.done">
-                <label for="input">{{task.category}} {{task.content}}</label>
-            </li>
-        </ul>
-        <h4>🌸Autres tâches</h4>
-        <ul>
-            <li *ngFor="let task of otherTasks">
-                <input type="checkbox" class="checkbox" (click)="toggleDone(task)" [class.done]="task.done">
-                <label for="input">{{task.category}} {{task.content}}</label>
-            </li>
-        </ul>
+        <div class="otherContain">
+            <h4>⚠️ Tâches urgentes</h4>
+            <ul>
+                <li *ngFor="let task of urgentTasks">
+                    <input type="checkbox" class="checkbox" (click)="toggleDone(task)" [class.done]="task.done" />
+                    <label for="input">{{ task.category }} {{ task.content }}</label>
+                </li>
+            </ul>
+            <h4>🌸Autres tâches</h4>
+            <ul>
+                <li *ngFor="let task of otherTasks">
+                    <input type="checkbox" class="checkbox" (click)="toggleDone(task)" [class.done]="task.done" />
+                    <label for="input">{{ task.category }} {{ task.content }}</label>
+                </li>
+            </ul>
+        </div>
     </section>
     <!-- <section class="list">
     <li *ngFor="let task of tasks">

@@ -39,3 +39,21 @@ li{
     display: flex;
     justify-content: center;
 }
+
+.otherContain{
+    margin-top: 38px;
+    margin-left: 28px;
+    /* gap: 22px; */
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.otherContain h4{
+    gap: 38px;
+}
+
+.otherContain ul{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
