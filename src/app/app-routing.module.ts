@@ -4,6 +4,7 @@ import { HistoricalComponent } from './pages/historical/historical.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 
+
 const routes: Routes = [
   {
     path: "",
@@ -11,6 +12,10 @@ const routes: Routes = [
   },
   {
     path:"tasks",
+    component: TasksComponent,
+  },
+  {
+    path:"tasks/:id",
     component: TasksComponent,
   },
   {

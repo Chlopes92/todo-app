@@ -10,6 +10,7 @@ import { TasksComponent } from './pages/tasks/tasks.component';
 import { CreateTasksComponent } from './components/create-tasks/create-tasks.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,

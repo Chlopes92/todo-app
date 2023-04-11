@@ -33,7 +33,7 @@ body::-webkit-scrollbar{
 }
 
 main::-webkit-scrollbar{
-    width: 3vw;
+    width: 1vw;
 }
 
 main::-webkit-scrollbar-thumb{

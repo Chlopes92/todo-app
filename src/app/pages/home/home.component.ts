@@ -41,8 +41,8 @@ export class HomeComponent implements OnInit{
   // }
 
   toggleDone(task: ITodo) {
-    task.done = !task.done;
-  if (task.done) {
+    task.doneDate = new Date();
+  if (task.doneDate) {
     this.basketService.saveTasks();
     const index = this.tasks.indexOf(task);
     this.tasks.splice(index, 1);

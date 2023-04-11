@@ -13,14 +13,14 @@
             <h4 *ngIf="tasks.length > 0">⚠️ Tâches urgentes</h4>
             <ul>
                 <li *ngFor="let task of urgentTasks">
-                    <input type="checkbox" class="checkbox" (click)="toggleDone(task)" [class.done]="task.done" />
+                    <input type="checkbox" class="checkbox" (click)="toggleDone(task)" [class.done]="task.doneDate" />
                     <a routerLink="tasks"><label for="input">{{ task.category }} {{ task.content }}</label></a>
                 </li>
             </ul>
             <h4 *ngIf="tasks.length > 0">🌸 Autres tâches</h4>
             <ul>
                 <li *ngFor="let task of otherTasks">
-                    <input type="checkbox" class="checkbox" (click)="toggleDone(task)" [class.done]="task.done" />
+                    <input type="checkbox" class="checkbox" (click)="toggleDone(task)" [class.done]="task.doneDate" />
                     <label for="input">{{ task.category }} {{ task.content }}</label>
                 </li>
             </ul>
