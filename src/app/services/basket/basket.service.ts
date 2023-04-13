@@ -20,6 +20,16 @@ export class BasketService {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
+//   editTask(task: ITodo): void {
+//   this.getTasks().subscribe((tasks: ITodo[]) => {
+//     const index = tasks.findIndex((t: ITodo) => t.id === task.id);
+//     if (index !== -1) {
+//       tasks[index] = task;
+//       localStorage.setItem('tasks', JSON.stringify(tasks));
+//     }
+//   });
+// }
+
   // Méthode permettant de mettre à jour la liste des tâches dans le localStorge. Elle récupère le tableau this.tasks et l'enregistre dans le localStorge à l'aide de la méthode localStorage.setItem().
   saveTasks(): void {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
@@ -27,7 +37,6 @@ export class BasketService {
 
   // Cette méthode permet de récupérer la liste complète des tâches enregistrées dans le localStorge.
   getTasks(): Observable<ITodo[]>{
-
     const tasks = localStorage.getItem('tasks');
     if (tasks) {
       this.tasks = JSON.parse(tasks);

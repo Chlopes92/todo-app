@@ -33,6 +33,7 @@ isSelected: boolean = false;
 // Ajouter une variable pour stocker le dernier ID utilisé
 lastId: number; 
 
+
 constructor(private basketService: BasketService, private activatedRoute: ActivatedRoute, private route: Router) {
   this.isButtonDisabled = true
 // Récupérer la dernière valeur d'ID utilisée depuis le LocalStorage
@@ -40,15 +41,19 @@ constructor(private basketService: BasketService, private activatedRoute: Activa
 }
 
 ngOnInit(){
-  // Récupérer l'ID de la tâche sélectionnée depuis le LocalStorage
+ // Récupérer l'ID de la tâche sélectionnée depuis le LocalStorage
   // const selectedTaskId = parseInt(localStorage.getItem('selectedTaskId') || '0');
-  //   // Charger la tâche sélectionnée en utilisant l'ID
-  //   this.basketService.getTasks(selectedTaskId).subscribe((task: ITodo[]) => {
-  //     this.tasks = task;
-  //     this.selectedCategory = task.category;
-  //   });
+  // const tasks = this.basketService.getTasks();
+  //   // this.task = tasks.find(task => task.id === selectedTaskId) || this.task;
+  //   this.selectedCategory = this.task.category;
+
+// Charger la tâche sélectionnée en utilisant l'ID
+    //   this.basketService.getTasks(selectedTaskId).subscribe((task: ITodo[]) => {
+    //   this.tasks = task;
+    //   this.selectedCategory = task.category;
+    // });
   
-  this.basketService.getTasks().subscribe((tasks: ITodo[]) => {
+    this.basketService.getTasks().subscribe((tasks: ITodo[]) => {
     this.tasks = tasks;
   });
 
@@ -63,8 +68,6 @@ ngOnInit(){
  );
  this.selectedCategory = this.task.category;
 }
-
-
 
 // Méthode est appelée lors de la validation d'une tâche à accomplir.
 validateTask(): void {

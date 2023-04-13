@@ -23,7 +23,6 @@ export class TasksComponent {
     isUrgent: false,
     doneDate: new Date(),
     // doneDate: null,
-    // done: false, 
   };
   //Booléen pour indiquer si le bouton de validation est activé ou non.
   isButtonDisabled: boolean = true;
@@ -34,15 +33,19 @@ export class TasksComponent {
   // selectedId: number;
 
 
+
   constructor(private basketService: BasketService) {
     this.isButtonDisabled = true
   // Récupérer la dernière valeur d'ID utilisée depuis le LocalStorage
     this.lastId = parseInt(localStorage.getItem('lastId') || '0');
-  // this.selectedId = parseInt(localStorage.getItem('selectedId') || '0');
-    
+
+    // this.selectedId = parseInt(localStorage.getItem('selectedId') || '0');   
   
 }
 
+// selectTaskId(taskId: number){
+//   localStorage.setItem('selectedId', taskId.toString());
+// }
 
   // Méthode est appelée lors de la validation d'une tâche à accomplir.
   validateTask(): void {
@@ -63,7 +66,6 @@ export class TasksComponent {
       category: this.selectedCategory,
       isUrgent: this.task.isUrgent,
       doneDate: null,
-      // done: this.task.done,
     };
 
     // Puis elle va ajouter et sauvegarder la tâche de la BasketService.
@@ -73,6 +75,7 @@ export class TasksComponent {
     // Stocker la nouvelle valeur d'ID dans le LocalStorage
     localStorage.setItem('lastId', this.lastId.toString());
     // localStorage.setItem('selectedId', this.selectedId.toString());
+    
   }
 
   //Cette méthode est utilisée pour la sélection de la catégorie d'une tâche, prenant en paramètre la seule category séléctionée.
