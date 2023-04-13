@@ -9,12 +9,15 @@ import { of } from 'rxjs';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit{
+
   tasks: ITodo[] = [];
   doneTasks: ITodo[] = [];
   urgentTasks: ITodo[] = [];
   otherTasks: ITodo[] = [];
   // submitted = false;
+  
 
   constructor(private basketService: BasketService, private router: Router) { }
 
@@ -34,7 +37,6 @@ export class HomeComponent implements OnInit{
       });
     });
   }
-  
 
   // onSubmit() {
   //   this.submitted = true;
@@ -44,18 +46,21 @@ export class HomeComponent implements OnInit{
     task.doneDate = new Date();
   if (task.doneDate) {
     this.basketService.saveTasks();
-    const index = this.tasks.indexOf(task);
-    this.tasks.splice(index, 1);
-    this.doneTasks.push(task);
+    const index = this.tasks.findIndex(t => t.id === task.id);
+    if (index !== -1) {
+      this.tasks.splice(index, 1);
+      this.doneTasks.push(task);
+    }
   }
 
   if (this.tasks.length === 0) {
     // enregistrer les modifications dans le service
     this.doneTasks = this.basketService.getDoneTasks();
     // rediriger vers la page Historical
-    this.router.navigate(['/historical']);
+    // this.router.navigate(['/historical']);
   }
   }
+
 
 }
   

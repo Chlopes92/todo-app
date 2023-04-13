@@ -15,6 +15,7 @@ export class BasketService {
   //Méthode qui permet d'ajouter une tâche à la liste des tâches enregistrées. Elle prend en entrée un objet task de type ITodo, qui contient toutes les informations de la tâche à ajouter. 
   addTask(task: ITodo): void {
     //La méthode ajoute cette tâche à la fin du tableau 'this.tasks', puis enregistre le tableau dans le localStorage avec la méthode localStorage.setItem().
+    this.getTasks()
     this.tasks.push(task);
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
@@ -37,8 +38,10 @@ export class BasketService {
 
   //  Cette méthode permet de récupérer la liste des tâches done à partir du tableau 'this.tasks'.
   getDoneTasks(): ITodo[] {
-    //la méthode filter() sert à créer un tableau qui ne contient que les tâches dont la propriété done est true, et retourne ce nouveau tableau.
+    //la méthode filter() sert à créer un tableau qui ne contient que les tâches dont la propriété doneDate est true, et retourne ce nouveau tableau.
     return this.tasks.filter(task => task.doneDate);
   }
+
+  
   
 }

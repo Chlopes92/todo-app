@@ -31,14 +31,19 @@ export class TasksComponent {
   isSelected: boolean = false;
   // Ajouter une variable pour stocker le dernier ID utilisé
   lastId: number; 
+  // selectedId: number;
+
 
   constructor(private basketService: BasketService) {
     this.isButtonDisabled = true
   // Récupérer la dernière valeur d'ID utilisée depuis le LocalStorage
     this.lastId = parseInt(localStorage.getItem('lastId') || '0');
+  // this.selectedId = parseInt(localStorage.getItem('selectedId') || '0');
+    
+  
 }
 
-  
+
   // Méthode est appelée lors de la validation d'une tâche à accomplir.
   validateTask(): void {
 
@@ -67,6 +72,7 @@ export class TasksComponent {
     console.log(taskData);
     // Stocker la nouvelle valeur d'ID dans le LocalStorage
     localStorage.setItem('lastId', this.lastId.toString());
+    // localStorage.setItem('selectedId', this.selectedId.toString());
   }
 
   //Cette méthode est utilisée pour la sélection de la catégorie d'une tâche, prenant en paramètre la seule category séléctionée.
@@ -76,5 +82,6 @@ export class TasksComponent {
     // this.validateTask();
     this.isSelected = true;
   }
+
 
 }

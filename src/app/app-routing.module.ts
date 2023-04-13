@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HistoricalComponent } from './pages/historical/historical.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
+import { TaskDetailsComponent } from './components/task-details/task-details.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,7 @@ const routes: Routes = [
   },
   {
     path:"tasks/:id",
-    component: TasksComponent,
+    component: TaskDetailsComponent,
   },
   {
     path: "historical",
