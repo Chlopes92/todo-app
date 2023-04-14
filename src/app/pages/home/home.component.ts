@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit{
         }
       });
     });
+    
   }
 
   // onSubmit() {
@@ -43,24 +44,45 @@ export class HomeComponent implements OnInit{
   // }
 
   toggleDone(task: ITodo) {
-    task.doneDate = new Date();
-  if (task.doneDate) {
+    if (task.doneDate) {
+      // Si doneDate existe, la tâche est terminée
+      task.doneDate = null;
+      this.basketService.saveTasks();
+      const index = this.tasks.findIndex(t => t.id === task.id);
+      if (index !== -1) {
+        this.tasks.splice(index, 1);
+        // On n'ajoute pas la tâche à la liste des tâches terminées ici
+        // car elle ne doit plus apparaître dans l'interface utilisateur
+      }
+    } else {
+      // Si doneDate n'existe pas, la tâche est en cours
+      task.doneDate = new Date();
+    }
+  
+    // Parcours toutes les tâches et met à jour celles qui sont terminées
+    for (const t of this.tasks) {
+      if (t.doneDate) {
+        const index = this.doneTasks.findIndex(dt => dt.id === t.id);
+        if (index === -1) {
+          this.doneTasks.push(t);
+        }
+      } else {
+        const index = this.doneTasks.findIndex(dt => dt.id === t.id);
+        if (index !== -1) {
+          this.doneTasks.splice(index, 1);
+        }
+      }
+    }
+  
+    // Enregistre les tâches mises à jour dans le localStorage
     this.basketService.saveTasks();
-    const index = this.tasks.findIndex(t => t.id === task.id);
-    if (index !== -1) {
-      this.tasks.splice(index, 1);
-      this.doneTasks.push(task);
+  
+    if (this.tasks.length === 0) {
+      this.doneTasks = this.basketService.getDoneTasks();
+      // this.router.navigate(['/historical']);
     }
   }
-
-  if (this.tasks.length === 0) {
-    // enregistrer les modifications dans le service
-    this.doneTasks = this.basketService.getDoneTasks();
-    // rediriger vers la page Historical
-    // this.router.navigate(['/historical']);
-  }
-  }
-
+  
 
 }
   
