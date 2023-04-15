@@ -21,15 +21,15 @@ export class BasketService {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
-//   editTask(task: ITodo): void {
-//   this.getTasks().subscribe((tasks: ITodo[]) => {
-//     const index = tasks.findIndex((t: ITodo) => t.id === task.id);
-//     if (index !== -1) {
-//       tasks[index] = task;
-//       localStorage.setItem('tasks', JSON.stringify(tasks));
-//     }
-//   });
-// }
+  editTask(task: ITodo): void {
+  this.getTasks().subscribe((tasks: ITodo[]) => {
+    const index = tasks.findIndex((t: ITodo) => t.id === task.id);
+    if (index !== -1) {
+      tasks[index] = task;
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+  });
+}
 
   // Méthode permettant de mettre à jour la liste des tâches dans le localStorge. Elle récupère le tableau this.tasks et l'enregistre dans le localStorge à l'aide de la méthode localStorage.setItem().
   saveTasks(): void {
@@ -50,6 +50,7 @@ export class BasketService {
   getDoneTasks(): ITodo[] {
     //la méthode filter() sert à créer un tableau qui ne contient que les tâches dont la propriété doneDate est true, et retourne ce nouveau tableau.
     return this.tasks.filter(task => task.doneDate);
+    
   }
 
   

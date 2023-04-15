@@ -16,4 +16,6 @@ export class HistoricalComponent {
   ngOnInit() {
     this.doneTasks = this.historicalService.getDoneTasks();
   }
+
+  
 }

@@ -10,10 +10,10 @@
 
 <section class="list" *ngIf="doneTasks.length > 0; else otherContain">
   <div class="otherContain">
-    <h4>Historique des tâches :</h4>
+    <h3>Historique des tâches :</h3>
     <ul>
       <li *ngFor="let task of doneTasks">
-        <input type="checkbox" class="checkbox" [checked]="true" disabled>
+        <input type="checkbox" class="checkbox" [checked]="true" disabled >
         <label for="input">{{task.category}} {{task.content}}</label>
       </li>
     </ul>
