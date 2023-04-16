@@ -53,6 +53,13 @@ export class BasketService {
     
   }
 
-  
+  updateDoneTask(task: ITodo) {
+    const doneTasks = JSON.parse(localStorage.getItem('doneTasks') || '[]');
+    const index = doneTasks.findIndex((t: ITodo) => t.id === task.id);
+    if (index !== -1) {
+      doneTasks[index] = task;
+      localStorage.setItem('doneTasks', JSON.stringify(doneTasks));
+    }
+  }
   
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ITodo } from 'src/app/mocks/todo.mock';
 import { BasketService } from 'src/app/services/basket/basket.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-historical',
@@ -9,13 +10,29 @@ import { BasketService } from 'src/app/services/basket/basket.service';
 })
 export class HistoricalComponent {
 
-  doneTasks: ITodo[] = [];
+  tasks: ITodo[] = [];
 
-  constructor(private historicalService: BasketService) { }
+  constructor(private historicalService: BasketService) {
+    const tasks = localStorage.getItem('tasks');
+    if (tasks) {
+    this.tasks = JSON.parse(tasks);
+    }
+   }
 
   ngOnInit() {
-    this.doneTasks = this.historicalService.getDoneTasks();
+    this.tasks = this.historicalService.getDoneTasks();
   }
 
-  
+  toggleDone(task: ITodo) {
+    task.doneDate = task.doneDate ? null : new Date();
+    const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+    const index = tasks.findIndex((t: ITodo) => t.id === task.id);
+    if (index > -1) {
+      tasks[index] = task;
+    } else {
+      tasks.push(task);
+    }
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+
 }
