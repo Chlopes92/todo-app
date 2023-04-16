@@ -13,7 +13,7 @@
     <h3>Historique des tâches :</h3>
     <ul>
       <li *ngFor="let task of doneTasks">
-        <input type="checkbox" class="checkbox" [checked]="true" disabled >
+        <input type="checkbox" class="checkbox" [(ngModel)]="task.doneDate" (click)="toggleDone(task)">
         <label for="input">{{task.category}} {{task.content}}</label>
       </li>
     </ul>

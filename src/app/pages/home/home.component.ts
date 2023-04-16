@@ -86,8 +86,9 @@ export class HomeComponent implements OnInit{
 
   noTasksDone(tasks: ITodo[]): boolean {
     return tasks.every(t => t.doneDate !== null);
-
   }
+
+  
 
 }
   
