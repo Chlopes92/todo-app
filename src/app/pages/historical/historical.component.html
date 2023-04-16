@@ -8,13 +8,15 @@
 </ng-template>
 
 
-<section class="list" *ngIf="doneTasks.length > 0; else otherContain">
+<section class="list" *ngIf="tasks.length > 0; else otherContain">
   <div class="otherContain">
     <h3>Historique des tâches :</h3>
     <ul>
-      <li *ngFor="let task of doneTasks">
+      <li *ngFor="let task of tasks">
+        <!-- <ng-container *ngIf="task.doneDate"> -->
         <input type="checkbox" class="checkbox" [(ngModel)]="task.doneDate" (click)="toggleDone(task)">
         <label for="input">{{task.category}} {{task.content}}</label>
+      <!-- </ng-container> -->
       </li>
     </ul>
   </div>

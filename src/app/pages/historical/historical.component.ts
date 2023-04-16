@@ -10,29 +10,29 @@ import { FormsModule } from '@angular/forms';
 })
 export class HistoricalComponent {
 
-  doneTasks: ITodo[] = [];
+  tasks: ITodo[] = [];
 
   constructor(private historicalService: BasketService) {
-    const doneTasks = localStorage.getItem('doneTasks');
-    if (doneTasks) {
-    this.doneTasks = JSON.parse(doneTasks);
+    const tasks = localStorage.getItem('tasks');
+    if (tasks) {
+    this.tasks = JSON.parse(tasks);
     }
    }
 
   ngOnInit() {
-    this.doneTasks = this.historicalService.getDoneTasks();
+    this.tasks = this.historicalService.getDoneTasks();
   }
 
   toggleDone(task: ITodo) {
     task.doneDate = task.doneDate ? null : new Date();
-    const doneTasks = JSON.parse(localStorage.getItem('doneTasks') || '[]');
-    const index = doneTasks.findIndex((t: ITodo) => t.id === task.id);
+    const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+    const index = tasks.findIndex((t: ITodo) => t.id === task.id);
     if (index > -1) {
-      doneTasks[index] = task;
+      tasks[index] = task;
     } else {
-      doneTasks.push(task);
+      tasks.push(task);
     }
-    localStorage.setItem('doneTasks', JSON.stringify(doneTasks));
+    localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
 }
