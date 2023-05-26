@@ -12,7 +12,7 @@
 
         <p class="text-left">Quelle tâche avez vous à effectuer* ?</p>
         <textarea name="task" id="task" cols="30" rows="10" placeholder="Exemple : Faire les courses"
-            [(ngModel)]="task.content"></textarea>
+            [(ngModel)]="task.content">{{ task.content }}</textarea>
         <!-- [(ngModel)] permet de lier la propriété "content" de l'objet "task" -->
 
         <label for="input" class="text-left">
@@ -25,7 +25,7 @@
             [ngStyle]="{ 'background-color': (!selectedCategory || !task.content) ? 'rgba(100, 167, 217, 0.5)' : 'var(--color--blue)' }"
             (click)="validateTask()" routerLink="">
             <!-- ngStyle permet de définir la couleur de fond du bouton en fonction de l'état du formulaire -->
-            Valider ma tâche
+            Modifier ma tâche
         </button>
     </form>
 </main>

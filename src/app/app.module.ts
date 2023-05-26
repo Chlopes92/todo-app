@@ -9,6 +9,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { CreateTasksComponent } from './components/create-tasks/create-tasks.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TaskDetailsComponent } from './components/task-details/task-details.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HistoricalComponent,
     HomeComponent,
     TasksComponent,
-    CreateTasksComponent
+    CreateTasksComponent,
+    TaskDetailsComponent
   ],
   imports: [
     BrowserModule,

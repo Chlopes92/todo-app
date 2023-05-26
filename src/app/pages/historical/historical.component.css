@@ -6,3 +6,54 @@ div{
     height: 73.4vh;
     gap: 32px;
 }
+
+label{
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Quicksand', sans-serif;
+}
+
+li{
+    list-style: none;
+}
+
+.checkbox{
+    width: 25px;
+    height: 25px;
+    background-color: var(--color--bg);
+    border: solid 2px white;
+    border-radius: 50%;
+    vertical-align: middle;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    margin-right: 11px;
+}
+
+.checkbox:checked:after {
+    content: '✔';
+    color: white;
+    font-family: Quicksand;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.otherContain{
+    margin-top: 38px;
+    margin-left: 28px;
+    /* gap: 22px; */
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.otherContain h4{
+    gap: 38px;
+}
+
+.otherContain ul{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}

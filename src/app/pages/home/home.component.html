@@ -1,12 +1,36 @@
-<section>
-    <div>
-        <p>Aucune tâche pour le moment 🙌</p>
-    </div>
-<app-create-tasks></app-create-tasks>
-</section>
+<main>
+    <ng-template #otherContain>
+        <section >
+            <div>
+                <p *ngIf="noTasksDone(tasks)">Aucune tâche pour le moment 🙌</p>
+            </div>
+            <app-create-tasks></app-create-tasks>
+        </section>
+    </ng-template>
 
-<!-- <section>
-    <p>⚠️ Tâches urgentes</p>
-
-    <p>🌸Autres tâches</p>
-</section> -->
+    <section *ngIf="tasks.length > 0 && !noTasksDone(tasks); else otherContain">
+        <div class="otherContain">
+            <h3 *ngIf="urgentTasks.length > 0 && !noTasksDone(urgentTasks)">⚠️ Tâches urgentes</h3>
+            <ul>
+                <li *ngFor="let task of urgentTasks.slice().reverse()">
+                    <ng-container *ngIf="!task.doneDate">
+                        <input type="checkbox" class="checkbox" (click)="toggleDone(task)"
+                            [class.done]="task.doneDate"/>
+                        <a routerLink="tasks/id"><label for="input">{{ task.category }} {{ task.content }}</label></a>
+                    </ng-container>
+                </li>
+            </ul>
+            <h3 *ngIf="otherTasks.length > 0 && !noTasksDone(otherTasks)">🌸 Autres tâches</h3>
+            <ul>
+                <li *ngFor="let task of otherTasks.slice().reverse()">
+                    <ng-container *ngIf="!task.doneDate">
+                        <input type="checkbox" class="checkbox" (click)="toggleDone(task)"
+                            [class.done]="task.doneDate" />
+                        <a routerLink="tasks/id"><label for="input">{{ task.category }} {{ task.content }}</label></a>
+                    </ng-container>
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+</main>

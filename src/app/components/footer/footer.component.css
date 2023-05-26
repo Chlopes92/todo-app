@@ -29,4 +29,6 @@ div{
 
 footer{
     border-top: 1px solid white;
+    /* position: fixed;
+    width: 100vw; */
 }
